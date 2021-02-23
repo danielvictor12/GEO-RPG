@@ -11491,7 +11491,7 @@ Component_MessageBehavior = (function(superClass) {
   Component_MessageBehavior.prototype.voiceDuration = function() {
     var duration;
     duration = 0;
-    if ((this.voice != null) && (this.settings.autoMessage.waitForVoice || this.settings.timeMessageToVoice)) {
+        if ((this.voice != null && this.voice.source != null) && (this.settings.autoMessage.waitForVoice || this.settings.timeMessageToVoice)) {
       duration = Math.round((this.voice.source.buffer.duration * (1.0 / this.voice.source.playbackRate.value)) * 1000 / 16.6);
     } else {
       duration = 0;
